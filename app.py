@@ -7,20 +7,15 @@ import requests
 import xml.etree.ElementTree as ET
 
 # =========================
-# GEMINI CONFIG
+# GEMINI CONFIG (PRODUCTION SAFE)
 # =========================
-# 1. Check if the key exists in Streamlit secrets first, otherwise check the sidebar
-if "GEMINI_API_KEY" in st.secrets:
-    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-else:
-    GEMINI_API_KEY = st.sidebar.text_input("Enter Gemini API Key", type="password")
+import streamlit as st
+import google.generativeai as genai
 
-# 2. Configure the model if a key is found
-if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel("gemini-2.5-flash")
-else:
-    st.sidebar.warning("Please provide a valid Gemini API Key to run.")
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 # =========================
 # STREAMLIT CONFIG
