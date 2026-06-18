@@ -133,3 +133,20 @@ No claim is generated without:
 ---
 
 ## 📂 Project Structure
+
+app.py
+/papers
+.streamlit/secrets.toml
+
+
+
+---
+
+## 🏁 Status
+
+✔ Paper Discovery  
+✔ PDF Ingestion  
+✔ Claim Extraction  
+✔ Cross-Document Synthesis  
+✔ Traceable Citations  
+✔ End-to-End Working System  
