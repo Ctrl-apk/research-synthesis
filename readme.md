@@ -11,24 +11,24 @@ Built for Assignment 7: Research AI Synthesis Engine
 ### 🔎 Paper Discovery (arXiv Integration)
 - Query-based academic paper search using arXiv API
 - Ranked results based on relevance
-- One-click import of papers into workspace
+- One-click import of research papers into workspace
 
 ---
 
 ### 📑 Document Ingestion Pipeline
 - Upload local PDFs or import from arXiv
 - PDF parsing using PyMuPDF
-- Multi-page text extraction
+- Multi-page text extraction (optimized for processing efficiency)
 
 ---
 
 ### 🧠 Claim Extraction Engine
-- Extracts factual claims from research papers
-- Classifies into:
+- Extracts factual claims from research papers using LLM
+- Classifies each claim into:
   - Finding
   - Hypothesis
   - Limitation
-- Stores:
+- Stores structured metadata:
   - Supporting quote
   - Page number
   - Source paper
@@ -36,36 +36,36 @@ Built for Assignment 7: Research AI Synthesis Engine
 ---
 
 ### 🔗 Cross-Document Synthesis
-- Merges claims across multiple papers
-- Generates structured research brief:
+- Aggregates claims across multiple papers
+- Generates structured comparative research brief:
   - Executive Summary
-  - Consensus
-  - Contradictions
+  - Consensus Areas
+  - Contradictions & disagreements
   - Evidence Strength
   - Research Gaps
 
 ---
 
 ### 📊 Traceable Research Output
-Every insight includes:
-- Paper name
+All generated insights are traceable to:
+- Source paper
 - Page number
 - Supporting quote
 
-No unsupported or hallucinated claims are used in synthesis.
+Ensures no unsupported or hallucinated claims are included in final synthesis.
 
 ---
 
 ## 🏗️ System Architecture
 
 User Query  
-→ arXiv Search  
+→ arXiv Search Engine  
 → Paper Download / Upload  
 → PDF Text Extraction (PyMuPDF)  
-→ LLM Claim Extraction (Gemini 2.5 Flash)  
-→ Claim Store (Session State)  
-→ Cross-Document Synthesis  
-→ Final Research Brief  
+→ LLM-based Claim Extraction (Gemini 2.5 Flash)  
+→ Structured Claim Store (Session State)  
+→ Cross-Document Synthesis Engine  
+→ Final Research Brief Generation  
 
 ---
 
@@ -75,69 +75,62 @@ User Query
 - Google Gemini 2.5 Flash (LLM)
 - PyMuPDF (PDF parsing)
 - arXiv API (paper discovery)
-- Python (core logic)
+- Python (core orchestration layer)
 
 ---
 
 ## 🧪 Workflow
 
-1. Enter research query (e.g., Cassandra vs Bigtable)
-2. System fetches relevant papers from arXiv
-3. Upload or import PDFs
-4. Extract text from documents
-5. LLM extracts structured claims
-6. Claims are aggregated
-7. Final synthesis generates research brief
+1. Enter research query (e.g., *Cassandra vs Bigtable*)
+2. System retrieves relevant papers from arXiv
+3. Upload or import PDFs into workspace
+4. Extract structured text from documents
+5. LLM extracts factual claims per page
+6. Claims are aggregated across sources
+7. Cross-document synthesis generates final research brief
 
 ---
 
 ## 📌 Output Format
 
-Final output includes:
+Final research brief includes:
 - Executive Summary
 - Key Findings
 - Consensus Areas
 - Contradictions
-- Evidence Strength
+- Evidence Strength Analysis
 - Research Gaps
-- Traceable citations
+- Fully traceable citations
 
 ---
 
-## 🧠 Core Principle
+## 🧠 Core Design Principle
 
-No claim is generated without:
-- Source paper
-- Page reference
-- Supporting quote
+> No claim is valid unless it is traceable to:
+- Source paper  
+- Page reference  
+- Supporting textual evidence  
 
 ---
 
 ## ⚠️ Limitations
 
-- PDF extraction depends on formatting quality
-- LLM outputs may require JSON cleanup
-- arXiv metadata sometimes incomplete
-- API latency affects performance
+- PDF extraction quality depends on document formatting
+- LLM outputs may require JSON sanitization
+- arXiv metadata may occasionally be incomplete
+- Performance depends on external API latency
 
 ---
 
 ## 🔮 Future Improvements
 
-- Embedding-based claim clustering
-- Contradiction detection system
+- Embedding-based semantic clustering of claims
+- Automated contradiction detection system
 - Citation graph visualization
-- RAG-based retrieval layer
-- Multi-model verification
+- Retrieval-Augmented Generation (RAG) layer
+- Multi-model verification for higher reliability
 
 ---
-
-## 📂 Project Structure
-
-app.py
-/papers
-.streamlit/secrets.toml
-
 
 
 ---
